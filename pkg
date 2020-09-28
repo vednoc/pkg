@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+help() {
+    echo "pkg help -- work in progress"
+    # TODO: Add documentation.
+}
+
+if [ $# -lt 1 ]; then
+    help
+    exit 0
+fi
+
+case "$1" in
+    h|help)
+        help
+        ;;
+
+    *)
+        printf "Unknown option: %s\n\n" "$*"
+        help
+        ;;
+esac
