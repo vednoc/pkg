@@ -13,6 +13,14 @@ info() {
     esac
 }
 
+install() {
+    shift
+    case "$PKG_MAN" in
+        pacman) pacman -S "$@" ;;
+        xbps) xbps-install -S "$@" ;;
+    esac
+}
+
 list() {
     shift
     case "$PKG_MAN" in
@@ -51,6 +59,10 @@ case "$1" in
 
     info)
         info "$@"
+        ;;
+
+    install)
+        install "$@"
         ;;
 
     list)
