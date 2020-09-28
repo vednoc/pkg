@@ -6,14 +6,32 @@ help() {
 }
 
 info() {
-    pacman -Qi "$@"
+    shift
+    case "$PKG_MAN" in
+        pacman) pacman -Qi "$@" ;;
+        xbps) xbps-query "$@" ;;
+    esac
 }
 
 list() {
     shift
-    pacman -Q "$@"
+    case "$PKG_MAN" in
+        pacman) pacman -Q "$@" ;;
+        xbps) xbps-query -l "$@" ;;
+    esac
 }
 
+
+# Determine which package manager to use.
+if command -v pacman >/dev/null; then
+    PKG_MAN="pacman"
+elif command -v xbps-install >/dev/null; then
+    PKG_MAN="xbps"
+else
+    echo "Unsupported package manager." >&2
+fi
+
+# Exit and print help if no arguments are passed.
 if [ $# -lt 1 ]; then
     help
     exit 0
