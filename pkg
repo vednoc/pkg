@@ -5,6 +5,15 @@ help() {
     # TODO: Add documentation.
 }
 
+info() {
+    pacman -Qi "$@"
+}
+
+list() {
+    shift
+    pacman -Q "$@"
+}
+
 if [ $# -lt 1 ]; then
     help
     exit 0
@@ -13,6 +22,14 @@ fi
 case "$1" in
     h|help)
         help
+        ;;
+
+    info)
+        info "$@"
+        ;;
+
+    list)
+        list "$@"
         ;;
 
     *)
