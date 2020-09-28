@@ -1,8 +1,29 @@
 #!/usr/bin/env sh
 
 help() {
-    echo "pkg help -- work in progress"
-    # TODO: Add documentation.
+    echo "\
+Usage:
+    pkg [options] [target]
+
+Example:
+    pkg search package
+    pkg info package
+    pkg upgrade
+
+Options:
+    help        print this message
+    info        see package info
+    install     install a package
+    list        show all packages in local repository
+    search      search for a package in repositories
+    upgrade     perform full system upgrade
+    version     show version of this tool
+
+Version:
+    0.1.0
+
+Source:
+    https://github.com/vednoc/pkg"
 }
 
 info() {
