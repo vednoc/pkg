@@ -50,6 +50,10 @@ upgrade() {
     esac
 }
 
+version() {
+    echo "pkg version 0.1.0"
+}
+
 # Determine which package manager to use.
 if command -v pacman >/dev/null; then
     PKG_MAN="pacman"
@@ -90,6 +94,10 @@ case "$1" in
 
     upgrade)
         upgrade "$@"
+        ;;
+
+    -v|--version|version)
+        version
         ;;
 
     *)
