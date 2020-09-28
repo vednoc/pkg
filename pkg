@@ -21,6 +21,13 @@ list() {
     esac
 }
 
+search() {
+    shift
+    case "$PKG_MAN" in
+        pacman) pacman -Ss "$@" ;;
+        xbps) xbps-query -Rs "$@" ;;
+    esac
+}
 
 # Determine which package manager to use.
 if command -v pacman >/dev/null; then
@@ -48,6 +55,10 @@ case "$1" in
 
     list)
         list "$@"
+        ;;
+
+    search)
+        search "$@"
         ;;
 
     *)
