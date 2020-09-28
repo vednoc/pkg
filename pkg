@@ -10,6 +10,7 @@ info() {
     case "$PKG_MAN" in
         pacman) pacman -Qi "$@" ;;
         xbps) xbps-query "$@" ;;
+        apt) apt show "$@" ;;
     esac
 }
 
@@ -18,6 +19,7 @@ install() {
     case "$PKG_MAN" in
         pacman) pacman -S "$@" ;;
         xbps) xbps-install -S "$@" ;;
+        apt) apt install "$@" ;;
     esac
 }
 
@@ -26,6 +28,7 @@ list() {
     case "$PKG_MAN" in
         pacman) pacman -Q "$@" ;;
         xbps) xbps-query -l "$@" ;;
+        apt) apt list "$@" ;;
     esac
 }
 
@@ -34,6 +37,7 @@ search() {
     case "$PKG_MAN" in
         pacman) pacman -Ss "$@" ;;
         xbps) xbps-query -Rs "$@" ;;
+        apt) apt search "$@" ;;
     esac
 }
 
@@ -42,6 +46,7 @@ upgrade() {
     case "$PKG_MAN" in
         pacman) pacman -Syu "$@" ;;
         xbps) xbps-install -Su "$@" ;;
+        apt) apt update && apt upgrade "$@" ;;
     esac
 }
 
@@ -50,6 +55,8 @@ if command -v pacman >/dev/null; then
     PKG_MAN="pacman"
 elif command -v xbps-install >/dev/null; then
     PKG_MAN="xbps"
+elif command -v apt >/dev/null; then
+    PKG_MAN="apt"
 else
     echo "Unsupported package manager." >&2
 fi
