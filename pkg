@@ -37,6 +37,14 @@ search() {
     esac
 }
 
+upgrade() {
+    shift
+    case "$PKG_MAN" in
+        pacman) pacman -Syu "$@" ;;
+        xbps) xbps-install -Su "$@" ;;
+    esac
+}
+
 # Determine which package manager to use.
 if command -v pacman >/dev/null; then
     PKG_MAN="pacman"
@@ -71,6 +79,10 @@ case "$1" in
 
     search)
         search "$@"
+        ;;
+
+    upgrade)
+        upgrade "$@"
         ;;
 
     *)
