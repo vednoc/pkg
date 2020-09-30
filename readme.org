@@ -1,7 +1,6 @@
-#+TITLE: pkg
-
+* pkg
 A wrapper for various package managers. ~pkg~ is made for those that want a tool
-that abstracts all the commonly used commands behind a simple a interface.
+that abstracts all the commonly used commands behind a universal interface.
 
 Heavily inspired by:
 + [[https://github.com/lukrop/xbps-pkg][lukrop/xbps-pkg]]
@@ -13,3 +12,6 @@ Clone this repository, and make a symbolic link to ~pkg~ file in your ~$PATH~. E
 #+BEGIN_SRC shell
 ln -s /home/user/code/pkg/pkg /home/user/.local/bin
 #+END_SRC
+
+** License
+Licensed under the [[./license][MIT license]].
