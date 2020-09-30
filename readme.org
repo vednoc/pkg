@@ -7,11 +7,21 @@ Heavily inspired by:
 + [[https://www.freebsd.org/cgi/man.cgi?query=pkg&apropos=0&sektion=0&manpath=FreeBSD+12.1-RELEASE+and+Ports&arch=default&format=html][FreeBSD's pkg(8)]]
 
 ** Installation
-Clone this repository, and make a symbolic link to ~pkg~ file in your ~$PATH~. E.g.:
+Clone this repository, and make a symbolic link to ~pkg~ on your ~$PATH~. E.g.:
 
 #+BEGIN_SRC shell
 ln -s /home/user/code/pkg/pkg /home/user/.local/bin
 #+END_SRC
+
+** Usage
+Type ~pkg help~ in your terminal emulator to get started.
+
+All available commands will be documented in the help option. Also, check out the
+source code to see the implementation of this tool.
+
+** Contributing
+Fork this project, clone the repository, install [[https://editorconfig.org/][EditorConfig]] plugin if
+necessary, then send over a Pull Request. Keep the changes small and relevant.
 
 ** License
 Licensed under the [[./license][MIT license]].
