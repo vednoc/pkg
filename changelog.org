@@ -1,0 +1,16 @@
+* Changelog
+** [2020-09-28 Mon] 0.1.0
+Added options for basic commands of ~pacman~, ~xbps~, and ~apt~ package managers.
+
+*** Documentation
+- Added project readme and MIT license
+- Added documentation via ~pkg h~ or ~pkg help~ option
+
+*** Commands
+- Added ~info~ option — shows info of a specific package
+- Added ~help~ option — shows the ~pkg~ help/documentation
+- Added ~list~ option — shows all packages in local package database
+- Added ~search~ option — searches remote repositories for a package
+- Added ~install~ option — installs a single or multiple packages
+- Added ~upgrade~ option — performs full system upgrade
+- Added ~version~ option — shows ~pkg~ version
