@@ -13,6 +13,13 @@ Clone this repository, and make a symbolic link to ~pkg~ on your ~$PATH~. E.g.:
 ln -s /home/user/code/pkg/pkg /home/user/.local/bin
 #+END_SRC
 
+After that, make ~pkg~ executable (otherwise you'll get "permission denied"
+error), like so:
+
+#+BEGIN_SRC shell
+chmod +x /home/user/code/pkg/pkg
+#+END_SRC
+
 ** Usage
 Type ~pkg help~ in your terminal emulator to get started.
 
