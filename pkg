@@ -101,19 +101,19 @@ case "$1" in
         info "$@"
         ;;
 
-    install)
+    i|install)
         install "$@"
         ;;
 
-    list)
+    ls|list)
         list "$@"
         ;;
 
-    search)
+    s|search)
         search "$@"
         ;;
 
-    upgrade)
+    u|upgrade)
         upgrade "$@"
         ;;
 
