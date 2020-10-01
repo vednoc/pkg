@@ -15,6 +15,7 @@ Options:
     info        see package info
     install     install a package
     list        show all packages in local repository
+    remove      remove a package(s) by name
     search      search for a package in repositories
     upgrade     perform full system upgrade
     version     show version of this tool
@@ -50,6 +51,15 @@ list() {
         pacman) pacman -Q "$@" ;;
         xbps) xbps-query -l "$@" ;;
         apt) apt list "$@" ;;
+    esac
+}
+
+remove() {
+    shift
+    case "$PKG_MAN" in
+        pacman) pacman -Rs "$@" ;;
+        xbps) xbps-remove -R "$@" ;;
+        apt) apt remove "$@" ;;
     esac
 }
 
@@ -107,6 +117,10 @@ case "$1" in
 
     ls|list)
         list "$@"
+        ;;
+
+	rm|remove)
+        remove "$@"
         ;;
 
     s|search)
