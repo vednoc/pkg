@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+PKG_VERSION="0.1.0"
+
 clean() {
     shift
     case "$PKG_MAN" in
@@ -31,7 +33,7 @@ Options:
     version     show version of this tool
 
 Version:
-    0.1.0
+    $PKG_VERSION
 
 Source:
     https://github.com/vednoc/pkg"
@@ -93,7 +95,7 @@ upgrade() {
 }
 
 version() {
-    echo "pkg version 0.1.0"
+    echo "pkg version $PKG_VERSION"
 }
 
 # Determine which package manager to use.
