@@ -1,4 +1,21 @@
 * Changelog
+** [2020-10-01 Thu] 0.2.0
+Added support for ~pkcon~, contributed by [[https://github.com/RaitaroH][@RaitaroH]], and a couple of new commands.
+
+*** Documentation
+- Added changelog for =0.1.0= release
+- Added more information to readme
+
+*** Commands
+- Added shorthand variants of the following options:
+  + ~i~ for ~install~
+  + ~ls~ for ~list~
+  + ~s~ for ~search~
+  + ~u~ for ~upgrade~
+  + ~rm~ for ~remove~
+- Added ~clean~ option — removes no longer needed packages in local repositories
+- Added ~remove~ option — removes a package(s) by name
+
 ** [2020-09-28 Mon] 0.1.0
 Added options for basic commands of ~pacman~, ~xbps~, and ~apt~ package managers.
 
