@@ -42,7 +42,7 @@ info() {
     case "$PKG_MAN" in
         pacman) pacman -Qi "$@" ;;
         xbps) xbps-query "$@" ;;
-        apt) apt show "$@" ;;
+        apt|pkcon) apt show "$@" ;;
     esac
 }
 
@@ -51,7 +51,7 @@ install() {
     case "$PKG_MAN" in
         pacman) pacman -S "$@" ;;
         xbps) xbps-install -S "$@" ;;
-        apt) apt install "$@" ;;
+        apt|pkcon) apt install "$@" ;;
     esac
 }
 
@@ -60,7 +60,7 @@ list() {
     case "$PKG_MAN" in
         pacman) pacman -Q "$@" ;;
         xbps) xbps-query -l "$@" ;;
-        apt) apt list "$@" ;;
+        apt|pkcon) apt list "$@" ;;
     esac
 }
 
@@ -78,7 +78,7 @@ search() {
     case "$PKG_MAN" in
         pacman) pacman -Ss "$@" ;;
         xbps) xbps-query -Rs "$@" ;;
-        apt) apt search "$@" ;;
+        apt|pkcon) apt search "$@" ;;
     esac
 }
 
@@ -88,6 +88,7 @@ upgrade() {
         pacman) pacman -Syu "$@" ;;
         xbps) xbps-install -Su "$@" ;;
         apt) apt update && apt upgrade "$@" ;;
+        pkcon) pkcon refresh && pkcon update ;;
     esac
 }
 
@@ -102,6 +103,8 @@ elif command -v xbps-install >/dev/null; then
     PKG_MAN="xbps"
 elif command -v apt >/dev/null; then
     PKG_MAN="apt"
+elif command -v pkcon >/dev/null; then
+    PKG_MAN="pkcon"
 else
     echo "Unsupported package manager." >&2
 fi
