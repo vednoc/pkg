@@ -1,5 +1,14 @@
 #!/usr/bin/env sh
 
+clean() {
+    shift
+    case "$PKG_MAN" in
+        pacman) pacman -Sc ;;
+        xbps) xbps-remove -O ;;
+        apt) apt clean ;;
+    esac
+}
+
 help() {
     echo "\
 Usage:
@@ -11,6 +20,7 @@ Example:
     pkg upgrade
 
 Options:
+    clean       clean up all local caches
     help        print this message
     info        see package info
     install     install a package
@@ -103,6 +113,10 @@ if [ $# -lt 1 ]; then
 fi
 
 case "$1" in
+    clean)
+        clean
+        ;;
+
     h|help)
         help
         ;;
