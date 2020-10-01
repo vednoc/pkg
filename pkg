@@ -7,7 +7,7 @@ clean() {
     case "$PKG_MAN" in
         pacman) pacman -Sc ;;
         xbps) xbps-remove -O ;;
-        apt) apt clean ;;
+        apt|pkcon) apt clean ;;
     esac
 }
 
@@ -72,6 +72,7 @@ remove() {
         pacman) pacman -Rs "$@" ;;
         xbps) xbps-remove -R "$@" ;;
         apt) apt remove "$@" ;;
+        pkcon) pkcon remove "$@" ;;
     esac
 }
 
