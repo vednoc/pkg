@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+version='0.1.0'
 
 help() {
     echo "\
@@ -20,7 +21,7 @@ Options:
     version     show version of this tool
 
 Version:
-    0.1.0
+    $version
 
 Source:
     https://github.com/vednoc/pkg"
@@ -73,7 +74,7 @@ upgrade() {
 }
 
 version() {
-    echo "pkg version 0.1.0"
+    echo "pkg version $version"
 }
 
 # Determine which package manager to use.
