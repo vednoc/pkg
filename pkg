@@ -5,9 +5,9 @@ PKG_VERSION="0.2.0"
 clean() {
     shift
     case "$PKG_MAN" in
-        pacman) pacman -Sc ;;
-        xbps) xbps-remove -O ;;
-        apt|pkcon) apt clean ;;
+        pacman) pacman -Sc "$@" ;;
+        xbps) xbps-remove -O "$@" ;;
+        apt|pkcon) apt clean "$@" ;;
     esac
 }
 
@@ -91,7 +91,7 @@ upgrade() {
         pacman) pacman -Syu "$@" ;;
         xbps) xbps-install -Su "$@" ;;
         apt) apt update && apt upgrade "$@" ;;
-        pkcon) pkcon refresh && pkcon update ;;
+        pkcon) pkcon refresh && pkcon update "$@" ;;
     esac
 }
 
@@ -120,7 +120,7 @@ fi
 
 case "$1" in
     clean)
-        clean
+        clean "$@"
         ;;
 
     h|help)
