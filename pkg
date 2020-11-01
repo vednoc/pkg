@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-PKG_VERSION="0.2.0"
+PKG_VERSION="0.3.0"
 
 clean() {
     shift
