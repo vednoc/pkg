@@ -12,7 +12,7 @@ clean() {
 }
 
 help() {
-    echo "\
+    printf "\
 Usage:
     pkg [options] [target]
 
@@ -33,10 +33,10 @@ Options:
     version     show version of this tool
 
 Version:
-    $PKG_VERSION
+    %s
 
 Source:
-    https://github.com/vednoc/pkg"
+    https://github.com/vednoc/pkg\n" $PKG_VERSION
 }
 
 info() {
@@ -96,7 +96,7 @@ upgrade() {
 }
 
 version() {
-    echo "pkg version $PKG_VERSION"
+    printf "pkg version %s\n" $PKG_VERSION
 }
 
 # Determine which package manager to use.
