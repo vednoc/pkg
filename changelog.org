@@ -1,4 +1,17 @@
 * Changelog
+** [2020-11-01 Sun] 0.3.0
+Added functionality that detects when elevated permissions are needed, and did a
+tiny amount of refactoring.
+
+*** Commands
+- Added ~sudo~ / ~doas~ support when using options that require elevated permissions
+  + Even works when the aforementioned tools are missing (not heavily tested).
+  + Yay for even less typing!
+
+*** Improved
+- Allowed passing arguments to options that didn't have it
+- Refactored the use of `echo` with `printf`
+
 ** [2020-10-01 Thu] 0.2.0
 Added support for ~pkcon~, contributed by [[https://github.com/RaitaroH][@RaitaroH]], and a couple of new commands.
 
