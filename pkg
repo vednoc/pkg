@@ -5,9 +5,9 @@ PKG_VERSION="0.2.0"
 clean() {
     shift
     case "$PKG_MAN" in
-        pacman) pacman -Sc "$@" ;;
-        xbps) xbps-remove -O "$@" ;;
-        apt|pkcon) apt clean "$@" ;;
+        pacman) $SUDO pacman -Sc "$@" ;;
+        xbps) $SUDO xbps-remove -O "$@" ;;
+        apt|pkcon) $SUDO apt clean "$@" ;;
     esac
 }
 
@@ -51,9 +51,9 @@ info() {
 install() {
     shift
     case "$PKG_MAN" in
-        pacman) pacman -S "$@" ;;
-        xbps) xbps-install -S "$@" ;;
-        apt|pkcon) apt install "$@" ;;
+        pacman) $SUDO pacman -S "$@" ;;
+        xbps) $SUDO xbps-install -S "$@" ;;
+        apt|pkcon) $SUDO apt install "$@" ;;
     esac
 }
 
@@ -69,10 +69,10 @@ list() {
 remove() {
     shift
     case "$PKG_MAN" in
-        pacman) pacman -Rs "$@" ;;
-        xbps) xbps-remove -R "$@" ;;
-        apt) apt remove "$@" ;;
-        pkcon) pkcon remove "$@" ;;
+        pacman) $SUDO pacman -Rs "$@" ;;
+        xbps) $SUDO xbps-remove -R "$@" ;;
+        apt) $SUDO apt remove "$@" ;;
+        pkcon) $SUDO pkcon remove "$@" ;;
     esac
 }
 
@@ -88,10 +88,10 @@ search() {
 upgrade() {
     shift
     case "$PKG_MAN" in
-        pacman) pacman -Syu "$@" ;;
-        xbps) xbps-install -Su "$@" ;;
-        apt) apt update && apt upgrade "$@" ;;
-        pkcon) pkcon refresh && pkcon update "$@" ;;
+        pacman) $SUDO pacman -Syu "$@" ;;
+        xbps) $SUDO xbps-install -Su "$@" ;;
+        apt) $SUDO apt update && apt upgrade "$@" ;;
+        pkcon) $SUDO pkcon refresh && pkcon update "$@" ;;
     esac
 }
 
@@ -110,6 +110,18 @@ elif command -v pkcon >/dev/null; then
     PKG_MAN="pkcon"
 else
     echo "Unsupported package manager." >&2
+fi
+
+# Determine which sudo-alike program to use.
+# Found it in xi file in [1] and slightly modified it.
+# [1]: https://github.com:leahneukirchen/xtools.
+SUDO=
+if command -v sudo >/dev/null; then
+    SUDO=sudo
+elif command -v doas >/dev/null && [ -f /etc/doas.conf ]; then
+    SUDO=doas
+elif [ "$(whoami)" != root ]; then
+    SUDO='su root -c '\''"$@"'\'' -- -'
 fi
 
 # Exit and print help if no arguments are passed.
