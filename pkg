@@ -109,7 +109,7 @@ version() {
     printf "pkg version %s\n" $PKG_VERSION
 }
 
-# Determine which package manager to use.
+# Determine which package manager is available.
 if command -v pacman >/dev/null; then
     PKG_MAN="pacman"
 elif command -v xbps-install >/dev/null; then
@@ -122,9 +122,9 @@ else
     echo "Unsupported package manager." >&2
 fi
 
-# Determine which sudo-alike program to use.
+# Determine how to get elevated permissions.
 # Found it in xi file in [1] and slightly modified it.
-# [1]: https://github.com:leahneukirchen/xtools.
+# [1]: https://github.com/leahneukirchen/xtools.
 SUDO=
 if command -v sudo >/dev/null; then
     SUDO=sudo
