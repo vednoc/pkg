@@ -29,6 +29,7 @@ Options:
     list        show all packages in local repository
     remove      remove a package(s) by name
     search      search for a package in repositories
+    unused      remove unused and not needed packages
     upgrade     perform full system upgrade
     version     show version of this tool
 
@@ -82,6 +83,15 @@ search() {
         pacman) pacman -Ss "$@" ;;
         xbps) xbps-query -Rs "$@" ;;
         apt|pkcon) apt search "$@" ;;
+    esac
+}
+
+unused() {
+    shift
+    case "$PKG_MAN" in
+        pacman) $SUDO pacman -R $(pacman -Qdtq) "$@" ;;
+        xbps) $SUDO xbps-remove -o "$@" ;;
+        apt|pkcon) $SUDO apt autremove "$@" ;;
     esac
 }
 
@@ -157,6 +167,10 @@ case "$1" in
 
     s|search)
         search "$@"
+        ;;
+
+    unused)
+        unused "$@"
         ;;
 
     u|upgrade)
