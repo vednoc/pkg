@@ -1,4 +1,15 @@
 * Changelog
+** [2020-11-08 Sun] 0.4.0
+Added a new option to remove packages not used by other packages, and improved
+wording in project/tool documentation.
+
+*** Documentation
+- Revised code comments
+- Improved wording for options in ~pkg help~ command
+
+*** Commands
+- Added ~unused~ option — removes unused and no longer needed packages
+
 ** [2020-11-01 Sun] 0.3.0
 Added functionality that detects when elevated permissions are needed, and did a
 tiny amount of refactoring.
@@ -10,7 +21,7 @@ tiny amount of refactoring.
 
 *** Improved
 - Allowed passing arguments to options that didn't have it
-- Refactored the use of `echo` with `printf`
+- Refactored the use of ~echo~ with ~printf~
 
 ** [2020-10-01 Thu] 0.2.0
 Added support for ~pkcon~, contributed by [[https://github.com/RaitaroH][@RaitaroH]], and a couple of new commands.
