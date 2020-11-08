@@ -22,13 +22,13 @@ Example:
     pkg upgrade
 
 Options:
-    clean       clean up all local caches
-    help        print this message
-    info        see package info
-    install     install a package
-    list        show all packages in local repository
-    remove      remove a package(s) by name
-    search      search for a package in repositories
+    clean       remove uninstalled packages from cache
+    help        show how to use this tool
+    info        show info about a package
+    install     install one or more packages
+    list        show all installed packages
+    remove      remove one or more packages
+    search      search for a package
     unused      remove unused and not needed packages
     upgrade     perform full system upgrade
     version     show version of this tool
