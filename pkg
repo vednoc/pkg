@@ -91,7 +91,7 @@ unused() {
     case "$PKG_MAN" in
         pacman) $SUDO pacman -R $(pacman -Qdtq) "$@" ;;
         xbps) $SUDO xbps-remove -o "$@" ;;
-        apt|pkcon) $SUDO apt autremove "$@" ;;
+        apt|pkcon) $SUDO apt autoremove "$@" ;;
     esac
 }
 
