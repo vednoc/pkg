@@ -100,8 +100,8 @@ upgrade() {
     case "$PKG_MAN" in
         pacman) $SUDO pacman -Syu "$@" ;;
         xbps) $SUDO xbps-install -Su "$@" ;;
-        apt) $SUDO apt update && apt upgrade "$@" ;;
-        pkcon) $SUDO pkcon refresh && pkcon update "$@" ;;
+        apt) $SUDO apt update && $SUDO apt upgrade "$@" ;;
+        pkcon) $SUDO pkcon update "$@" ;;
     esac
 }
 
