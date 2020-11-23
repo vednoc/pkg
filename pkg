@@ -100,8 +100,8 @@ upgrade() {
     case "$PKG_MAN" in
         pacman) $SUDO pacman -Syu "$@" ;;
         xbps) $SUDO xbps-install -Su "$@" ;;
-        apt) $SUDO apt update && apt upgrade "$@" ;;
-        pkcon) $SUDO pkcon refresh && pkcon update "$@" ;;
+        apt) $SUDO apt update && $SUDO apt upgrade "$@" ;;
+        pkcon) $SUDO pkcon update "$@" ;;
     esac
 }
 
@@ -114,10 +114,10 @@ if command -v pacman >/dev/null; then
     PKG_MAN="pacman"
 elif command -v xbps-install >/dev/null; then
     PKG_MAN="xbps"
-elif command -v apt >/dev/null; then
-    PKG_MAN="apt"
 elif command -v pkcon >/dev/null; then
     PKG_MAN="pkcon"
+elif command -v apt >/dev/null; then
+    PKG_MAN="apt"
 else
     echo "Unsupported package manager." >&2
 fi
