@@ -1,4 +1,21 @@
 * Changelog
+** [2020-11-25 Wed] 0.5.0
+Fixed a few bugs with ~pkcon~ and ~apt~ commands, simplified output when a passed
+option doesn't exist, and refined installation steps.
+
+*** Documentation
+- Added "installing only the tool" step by using ~cURL~
+- Refined installation steps
+
+*** Bug fixes
+- Fixed a typo for ~apt autoremove~ command ([[https://github.com/vednoc/pkg/pull/3][#3]])
+- Fixed =upgrade= commands for ~pkcon~ and ~apt~ ([[https://github.com/vednoc/pkg/pull/5][#5]])
+- Changed detection order for ~pkcon~ and ~apt~ ([[https://github.com/vednoc/pkg/pull/5][#5]])
+
+*** Improved
+- Simplified output when a passed option doesn't exist
+  + It no longer shows ~pkg help~, it instead tells you to run it manually.
+
 ** [2020-11-08 Sun] 0.4.0
 Added a new option to remove packages not used by other packages, and improved
 wording in project/tool documentation.
