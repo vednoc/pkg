@@ -182,7 +182,7 @@ case "$1" in
         ;;
 
     *)
-        printf "Unknown option: %s\n\n" "$*"
-        help
+        printf "Unknown option: %s\n" "$*"
+        printf "Run 'pkg help' for documentation.\n"
         ;;
 esac
