@@ -7,17 +7,28 @@ Heavily inspired by:
 + [[https://www.freebsd.org/cgi/man.cgi?query=pkg&apropos=0&sektion=0&manpath=FreeBSD+12.1-RELEASE+and+Ports&arch=default&format=html][FreeBSD's pkg(8)]]
 
 ** Installation
-Clone this repository, and make a symbolic link to ~pkg~ on your ~$PATH~. E.g.:
+As an example, the following steps use a local bin directory.
+
+*** If you want everything
+Clone this repository, then make a symbolic link to ~pkg~ on your ~$PATH~.
 
 #+BEGIN_SRC shell
-ln -s /home/user/code/pkg/pkg /home/user/.local/bin
+ln -s $HOME/code/pkg/pkg $HOME/.local/bin
 #+END_SRC
 
-After that, make ~pkg~ executable (otherwise you'll get "permission denied"
-error), like so:
+*** If you only want the tool
+Use ~cURL~ to download the tool and save it in your local ~bin~ directory.
 
 #+BEGIN_SRC shell
-chmod +x /home/user/code/pkg/pkg
+curl -o $HOME/.local/bin/pkg -L https://github.com/vednoc/pkg/raw/main/pkg
+#+END_SRC
+
+*** Make the tool executable
+After installation is complete, make ~pkg~ executable (otherwise you'll get
+"permission denied" error).
+
+#+BEGIN_SRC shell
+chmod +x $HOME/.local/bin/pkg
 #+END_SRC
 
 ** Usage
